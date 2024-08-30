@@ -23,6 +23,12 @@ body {
   width: 90%;
   margin: 0 auto;
 }
+img{
+  transition: all 0.4s;
+  &:hover{
+    transform: scale(0.9);
+  }
+}
 button {
   display: flex;
   align-items: center;
@@ -34,11 +40,27 @@ button {
   border-radius: 40px;
   border: none;
   cursor: pointer;
+  transition: opacity 0.2s;
+  &:hover{
+    opacity: 0.9;
+  }
+}
+button img{
+  width: 20px;
 }
 header {
   padding-bottom: 2rem;
 }
 /* nav style here  */
+.nav{ 
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,255,0,0.5);
+  backdrop-filter: blur(100px);
+}
 .nav_bar {
   display: flex;
   gap: 2rem;
@@ -81,7 +103,7 @@ header {
   transition: all 0.4s;
 }
 .nav_bar ul li a:hover {
-  color: var(--primary_color);
+  color: #747171;
 }
 .nav_bar .btn_group {
   display: flex;
@@ -411,12 +433,21 @@ header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+    gap: 1rem;
     justify-content: center;
     .service_item {
       max-width: 250px;
       text-align: center;
       padding: 1rem;
       color: var(--primary_color);
+      border-radius: 10px;
+      border: 1px solid #9b9b9b;
+      transition: all .3s;
+      cursor: pointer;
+      &:hover{
+        border: 1px solid #555555;
+        box-shadow: 2px 2px 5px rgba(0,255,0,0.4);
+      }
       & div {
         display: grid;
         place-content: center;
@@ -476,18 +507,17 @@ footer {
 
 /* =========media quereis======  */
 @media (max-width: 1024px) {
+
   /* ======= nav ====== */
   .nav_bar .ham {
     display: block;
   }
-  .nav_bar {
-    position: relative;
-  }
   .nav_bar ul {
-    position: absolute;
+    position: fixed;
+    display: none;
     flex-direction: column;
     top: 0;
-    left: 105%;
+    left: 0;
     background-color:white;
     z-index: 20;
     color: var(--text_color);
@@ -502,6 +532,7 @@ footer {
   /* ========= header ======== */
   .hero_aria {
     flex-direction: column;
+    margin-top: 50px;
     gap: 1rem;
     .hero_left_side {
       & h1 {
@@ -712,6 +743,10 @@ footer {
 }
 
 @media (max-width: 567px) {
+  /* nav  */
+  .nav_bar h2 {
+    font-size: 24px;
+  }
   button {
     padding: 0.5rem 1rem;
     font-size: 18px;

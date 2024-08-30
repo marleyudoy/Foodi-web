@@ -6,10 +6,10 @@ hamBurger.addEventListener('click',show_hamburger)
 let a = false;
 function show_hamburger(){
   if(a){
-    hamMenu.style.left = "105%"
+    hamMenu.style.display = "flex"
     a = false
   }else{
-    hamMenu.style.left = "-6%"
+    hamMenu.style.display = "none"
     a = true
   }
 }
